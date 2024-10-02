@@ -1,0 +1,10 @@
+<div class="bg-green-800 rounded m-5 p-2">
+    <img [src]="blog.image" alt="{{ blog.title }}" class="h-52 object-cover" />
+    <div class="p-2">
+      <h3 class="text-lg font-bold text-gray-800 mb-3">{{ blog.title }}</h3>
+      <p class="text-gray-500 text-sm">{{ blog.opportunities }}</p>
+      <p class="text-orange-500 text-[13px] font-semibold mt-4">{{ formatDate(blog.applyDate) }}</p>
+      <a [routerLink]="['/blog', blog._id]" class="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-orange-500 hover:bg-orange-600 text-white text-[13px]">Read More</a>
+    </div>
+  </div>
+  

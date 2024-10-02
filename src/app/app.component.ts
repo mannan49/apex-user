@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "./navbar/navbar.component";
+import { SingleBlogComponent } from "./single-blog/single-blog.component";
+import { AllBlogsComponent } from "./all-blogs/all-blogs.component";
+import { LoaderComponent } from "./utilities/loader/loader.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterOutlet, NavbarComponent, SingleBlogComponent, AllBlogsComponent, LoaderComponent],
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'apex-user';
