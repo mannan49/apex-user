@@ -1,11 +1,12 @@
-<app-loader *ngIf="loading"></app-loader>
+<app-loader *ngIf="loading" class="min-h-screen"></app-loader>
 
-<div *ngIf="!loading">
+<div *ngIf="!loading" class="min-h-screen">
+  <app-search-bar></app-search-bar>
   <h1 class="m-4 text-3xl text-center font-bold">
     Welcome to Apex Scholarhips
   </h1>
-  <ul class="grid grid-col-1 lg:grid-cols-4">
-    <li class="mb-2 h-full" *ngFor="let blog of blogs">
+  <ul class="grid grid-col-1 lg:grid-cols-4 gap-6 lg:pt-5 pb-20 px-3">
+    <li class="" *ngFor="let blog of blogs">
       <app-blog-card [blog]="blog" class="h-full"></app-blog-card>
     </li>
   </ul>

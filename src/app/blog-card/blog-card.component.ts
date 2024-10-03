@@ -17,4 +17,7 @@ export class BlogCardComponent {
   formatDate(dateString: string): string {
     return this.blogSvc.formatDate(dateString);
   }
+  getCountryCode(country:string) : string {
+    return this.blogSvc.getCountryCode(country)
+  }
 }

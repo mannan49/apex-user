@@ -5,12 +5,13 @@ import { Blog } from '../single-blog/blog.model';
 import { CommonModule } from '@angular/common';
 import { BlogCardComponent } from "../blog-card/blog-card.component";
 import { LoaderComponent } from "../utilities/loader/loader.component";
+import { SearchBarComponent } from "../search-bar/search-bar.component";
 
 
 @Component({
   selector: 'app-all-blogs',
   standalone: true,
-  imports: [SingleBlogComponent, CommonModule, BlogCardComponent, LoaderComponent],
+  imports: [SingleBlogComponent, CommonModule, BlogCardComponent, LoaderComponent, SearchBarComponent],
   templateUrl: './all-blogs.component.html',
 })
 export class AllBlogsComponent implements OnInit {
@@ -22,7 +23,7 @@ export class AllBlogsComponent implements OnInit {
   loading = true;
   
   ngOnInit() {
-    this.blogSvc.getBlogs().subscribe({
+    this.blogSvc.filteredBlogs$.subscribe({
       next: (blogs: Blog[]) => {
         console.log('Fetched blogs:', blogs); 
         this.blogs = blogs;

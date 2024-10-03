@@ -1,11 +1,48 @@
-<app-loader *ngIf="loading"></app-loader>
-
-<div *ngIf="!loading" class="bg-green-800 rounded m-5 p-2">
-  <img [src]="blog.image" alt="{{ blog.title }}" class="h-52 object-cover" />
-  <div class="p-2">
-    <h3 class="text-lg font-bold text-gray-800 mb-3">{{ blog.title }}</h3>
-    <p class="text-gray-500 text-sm">{{ blog.opportunities }}</p>
-    <p class="text-orange-500 text-[13px] font-semibold mt-4">{{ formatDate(blog.applyDate) }}</p>
-    <a [routerLink]="['/blog', blog._id]" class="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-orange-500 hover:bg-orange-600 text-white text-[13px]">Read More</a>
+<div *ngIf="loading"  class="min-h-screen my-auto pt-30">
+  <div class="mt-40">
+    <app-loader></app-loader>
   </div>
 </div>
+
+<div *ngIf="!loading" class="rounded m-5 p-2 min-h-screen">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="my-auto py-2 px-4 lg:pl-12">
+      <h3 class="text-xl lg:text-3xl text-center mt-2 font-bold text-gray-800 mb-3">{{ blog.title }}</h3>
+      <div>
+        <div class="flex flex-col lg:flex-row">
+          <div class="mb-5">
+            <p class="text-gray-500 text-lg">{{ blog.opportunities }}</p>
+            <p class="text-md font-semibold mt-4">Apply Date: {{ formatDate(blog.applyDate) }}</p>
+            <p class="text-md font-semibold mt-4 animate-bounce">Last Date: {{ formatDate(blog.lastDate) }}</p>
+            <p class="text-md font-semibold mt-4 flex items-center">
+              Country: 
+              <img [src]="'https://flagcdn.com/h20/' + getCountryCode(blog.country) + '.png'" 
+                   alt="{{ blog.country }}" class="w-8 mx-2" />
+              {{ blog.country }}
+            </p>
+            <p class="text-md font-semibold mt-4">Category: {{ blog.category }}</p>
+            <p class="text-md font-semibold mt-4">Max Benefit: Rs. {{ blog.maxRange }}</p>
+         
+          </div>
+          <div class="lg:my-20 mx-auto">
+            <a class="text-2xl text-white px-4 py-2 rounded-lg bg-orange-500 font-semibold mt-4 animate-pulse" href={{blog.links[0]}}>Apply Here 👈🏻</a>
+          </div>
+        </div>
+        <p class="text-lg text-center font-bold mt-4">Details of Scholarhip</p>
+<div *ngFor = "let content of blog.content">
+  <p class="text-lg mt-4 font-bold">{{ content.title }}</p>
+  <p class="text-gray-600 text-lg my-2 text-justify">{{ content.description }}</p>
+  <div class="w-full flex justify-center">
+    <a class="text-lg text-white px-4 py-2 rounded-lg bg-orange-500 font-semibold " href={{content.link}}>Learn More</a>
+
+  </div>
+</div>
+      </div>
+      
+    </div>
+    <img [src]="blog.image" alt="{{ blog.title }}" class="w-full lg:w-4/5 h-80 mx-auto object-cover" />
+  </div>
+  
+</div>
+
+

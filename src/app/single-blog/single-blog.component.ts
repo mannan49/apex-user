@@ -43,4 +43,9 @@ export class SingleBlogComponent implements OnInit{
     return this.blogSvc.formatDate(dateString);
   }
 
+  getCountryCode(country:string) : string {
+    return this.blogSvc.getCountryCode(country)
+  }
+  
+
 }
