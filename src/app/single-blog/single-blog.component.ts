@@ -25,7 +25,7 @@ export class SingleBlogComponent implements OnInit{
       if (id) {
         this.blogSvc.getBlogById(id).subscribe({
           next: (blog: Blog) => {
-            console.log('Fetched blog:', blog); 
+            // console.log('Fetched blog:', blog); 
             this.blog = blog;
             this.loading = false;
           },

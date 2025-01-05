@@ -25,7 +25,7 @@ export class AllBlogsComponent implements OnInit {
   ngOnInit() {
     this.blogSvc.filteredBlogs$.subscribe({
       next: (blogs: Blog[]) => {
-        console.log('Fetched blogs:', blogs); 
+        // console.log('Fetched blogs:', blogs); 
         this.blogs = blogs;
         this.loading=false;
       },
